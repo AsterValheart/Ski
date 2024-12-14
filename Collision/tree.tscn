@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctb8p31swiiip"]
+
+[ext_resource type="Material" uid="uid://baq0gx2xg6yu2" path="res://Collision/brown.tres" id="1_gueoq"]
+[ext_resource type="Material" uid="uid://bp07we15j73dw" path="res://Collision/green.tres" id="2_deyog"]
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_n5l7v"]
+
+[sub_resource type="Curve" id="Curve_jyxvy"]
+_data = [Vector2(0.0142857, 0), 0.0, 0.761905, 0, 0, Vector2(1, 0.98105), 0.858343, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_mnl1r"]
+material = ExtResource("2_deyog")
+radial_steps = 6
+curve = SubResource("Curve_jyxvy")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ex4c2"]
+
+[node name="Tree" type="StaticBody3D" groups=["Tree"]]
+transform = Transform3D(1, 0, 0, 0, 0.961975, 0.273137, 0, -0.273137, 0.961975, 0, -0.437495, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.539061, 0, 0, 0, 0.719232, 0, 0, 0, 0.539061, 0, 0.948597, 0)
+mesh = SubResource("TubeTrailMesh_n5l7v")
+surface_material_override/0 = ExtResource("1_gueoq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.81572, 0, 0, 0, 1.28392, 0, 0, 0, 1.84212, 0.00400606, 1.79632, 0.0176351)
+mesh = SubResource("TubeTrailMesh_mnl1r")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.47157, 0, -0.569779, 0, 1.16356, 0, 0.569779, 0, 1.47157, 0.00400606, 2.22267, 0.0176351)
+mesh = SubResource("TubeTrailMesh_mnl1r")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.945705, 0, 0.32785, 0, 0.979403, 0, -0.32785, 0, 0.945705, 0.00400606, 2.70188, 0.0176351)
+mesh = SubResource("TubeTrailMesh_mnl1r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.508947, 0, 0, 0, 1.35561, 0, 0, -8.9407e-08, 0.529069, 0.00129479, 1.94664, 0.0101204)
+shape = SubResource("CylinderShape3D_ex4c2")
